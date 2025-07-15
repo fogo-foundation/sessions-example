@@ -13,7 +13,6 @@ export default ({ children, }: { children: ReactNode }) => (
     <body>
       <FogoSessionProvider
         endpoint="https://testnet.fogo.io/"
-        domain="https://foo.bar"
         sponsor={SPONSOR_KEY.publicKey.toBase58()}
         paymasterUrl="/sponsor_and_send"
         tokens={[NATIVE_MINT.toBase58()]}
