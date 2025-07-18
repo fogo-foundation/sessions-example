@@ -12,6 +12,7 @@ export default ({ children, }: { children: ReactNode }) => (
   <html lang="en">
     <body>
       <FogoSessionProvider
+        domain="https://foo.bar"
         endpoint="https://testnet.fogo.io/"
         sponsor={SPONSOR_KEY.publicKey.toBase58()}
         paymasterUrl="/paymaster"
