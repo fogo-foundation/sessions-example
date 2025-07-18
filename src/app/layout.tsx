@@ -12,10 +12,10 @@ export default ({ children, }: { children: ReactNode }) => (
   <html lang="en">
     <body>
       <FogoSessionProvider
-        domain="https://foo.bar"
-        endpoint="https://testnet.fogo.io/"
         sponsor={SPONSOR_KEY.publicKey.toBase58()}
         paymasterUrl="/paymaster"
+        domain={process.env.NODE_ENV === "production" ? undefined : "https://foo.bar"}
+        endpoint="https://testnet.fogo.io/"
         tokens={[NATIVE_MINT.toBase58()]}
         defaultRequestedLimits={{
           [NATIVE_MINT.toBase58()]: 1_500_000_000n,
