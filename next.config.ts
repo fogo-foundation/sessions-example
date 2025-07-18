@@ -1,0 +1,21 @@
+import type { NextConfig } from "next";
+
+const config: NextConfig = {
+  headers: async () => [
+    {
+      source: "/paymaster",
+      headers: [
+        {
+          key: "Access-Control-Allow-Origin",
+          value: "*"
+        },
+        {
+          key: "Access-Control-Allow-Methods",
+          value: "POST"
+        }
+      ]
+    }
+  ]
+}
+
+export default config;

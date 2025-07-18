@@ -14,7 +14,7 @@ export default ({ children, }: { children: ReactNode }) => (
       <FogoSessionProvider
         endpoint="https://testnet.fogo.io/"
         sponsor={SPONSOR_KEY.publicKey.toBase58()}
-        paymasterUrl="/sponsor_and_send"
+        paymasterUrl="/paymaster"
         tokens={[NATIVE_MINT.toBase58()]}
         defaultRequestedLimits={{
           [NATIVE_MINT.toBase58()]: 1_500_000_000n,
