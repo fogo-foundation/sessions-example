@@ -11,7 +11,7 @@ export default ({ children, }: { children: ReactNode }) => (
   <html lang="en">
     <body>
       <FogoSessionProvider
-        domain={process.env.NODE_ENV === "production" ? undefined : "https://foo.bar"}
+        domain={process.env.NODE_ENV === "production" ? undefined : "https://sessions-example.fogo.io"}
         endpoint="https://testnet.fogo.io/"
         tokens={[NATIVE_MINT.toBase58(), "fUSDNGgHkZfwckbr5RLLvRbvqvRcTLdH9hcHJiq4jry"]}
         defaultRequestedLimits={{
