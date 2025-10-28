@@ -3,7 +3,7 @@
 import { AnchorProvider, BN, Wallet } from "@coral-xyz/anchor";
 import { ExampleProgram } from "@fogo/sessions-idls";
 import { TransactionResult } from "@fogo/sessions-sdk";
-import { useSession, type EstablishedSessionState, isEstablished } from "@fogo/sessions-sdk-react";
+import { useSession, type EstablishedSessionState, isEstablished, useConnection } from "@fogo/sessions-sdk-react";
 import { getAssociatedTokenAddressSync, NATIVE_MINT, getMint } from "@solana/spl-token";
 import { PublicKey } from "@solana/web3.js";
 import { useCallback, useState } from "react";
@@ -33,16 +33,17 @@ const useTrade = (
   mint: PublicKey,
 ) => {
   const [state, setState] = useState<State>(State.Base());
+  const connection = useConnection();
 
   const execute = useCallback(() => {
     if (state.type === StateType.Running) {
       throw new AlreadyInProgressError();
     }
     setState(State.Running());
-    getMint(sessionState.connection, mint)
+    getMint(connection, mint)
       .then(({ decimals }) => (
         new ExampleProgram(
-          new AnchorProvider(sessionState.connection, {} as Wallet, {}),
+          new AnchorProvider(connection, {} as Wallet, {}),
         ).methods
           .exampleTransfer(new BN(amount * Math.pow(10, decimals)))
           .accountsPartial({
@@ -64,7 +65,7 @@ const useTrade = (
         setState(State.ErrorState(error));
         throw error;
       });
-  }, [state, sessionState, amount, mint, setState]);
+  }, [state, sessionState, amount, mint, setState, connection]);
 
   return { state, execute };
 };
