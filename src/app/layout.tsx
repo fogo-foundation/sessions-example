@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { FogoSessionProvider, SessionButton } from "@fogo/sessions-sdk-react";
+import { FogoSessionProvider, SessionButton, Network } from "@fogo/sessions-sdk-react";
 import { NATIVE_MINT } from "@solana/spl-token";
 
 export const metadata = {
@@ -11,8 +11,8 @@ export default ({ children, }: { children: ReactNode }) => (
   <html lang="en">
     <body>
       <FogoSessionProvider
+        network={Network.Testnet}
         domain={process.env.NODE_ENV === "production" ? undefined : "https://sessions-example.fogo.io"}
-        endpoint="https://testnet.fogo.io/"
         tokens={[NATIVE_MINT.toBase58(), "fUSDNGgHkZfwckbr5RLLvRbvqvRcTLdH9hcHJiq4jry"]}
         defaultRequestedLimits={{
           [NATIVE_MINT.toBase58()]: 1_500_000_000n,
