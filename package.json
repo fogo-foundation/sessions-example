@@ -12,9 +12,8 @@
   "packageManager": "pnpm@10.12.4",
   "dependencies": {
     "@coral-xyz/anchor": "^0.31.1",
-    "@fogo/sessions-idls": "^0.0.8",
-    "@fogo/sessions-sdk": "^0.0.19",
-    "@fogo/sessions-sdk-react": "^0.0.29",
+    "@fogo/sessions-idls": "^0.0.9",
+    "@fogo/sessions-sdk-react": "^0.1.1",
     "@solana/spl-token": "^0.4.13",
     "@solana/web3.js": "^1.98.2",
     "next": "^15.4.2",

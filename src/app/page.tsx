@@ -2,8 +2,7 @@
 
 import { AnchorProvider, BN, Wallet } from "@coral-xyz/anchor";
 import { ExampleProgram } from "@fogo/sessions-idls";
-import { TransactionResult } from "@fogo/sessions-sdk";
-import { useSession, type EstablishedSessionState, isEstablished, useConnection } from "@fogo/sessions-sdk-react";
+import { TransactionResult, useSession, type EstablishedSessionState, isEstablished, useConnection } from "@fogo/sessions-sdk-react";
 import { getAssociatedTokenAddressSync, NATIVE_MINT, getMint } from "@solana/spl-token";
 import { PublicKey } from "@solana/web3.js";
 import { useCallback, useState } from "react";
